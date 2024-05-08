@@ -1,0 +1,1 @@
+web: gunicron ctf.wsgi --log-file -
