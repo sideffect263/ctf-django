@@ -1,0 +1,12 @@
+body{
+
+     background: linear-gradient(to right, rgb(199, 219, 203), #efecf1); /* Gradient background from blue to dark gray */
+    color: #09042f; /* Text color */
+}
+.card-text{
+    color: green;
+    font-weight: 600;
+}
+.card-title{
+    font-weight: 700;
+}

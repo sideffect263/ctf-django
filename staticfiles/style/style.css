@@ -1,0 +1,227 @@
+/* Reset some default styles for consistency */
+body, h1, h2, h3, p, ul, li,html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #000;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin: 0; /* Remove default body margin */
+    padding: 0; /* Remove default body padding */
+}
+.container {
+    width: 100%;
+    min-height: 100%; /* Ensure the container takes at least the full height of the viewport */
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    margin-top: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.navbar-brand{
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-left: 2%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+.levels{
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    justify-self: center;
+    align-self: center;
+    flex-direction: column;
+    border-style: solid;
+    border-color: #333;
+    border-width: 5px;
+    flex: 3;
+    border-radius: 30px;
+
+
+}
+
+.levelHandler{
+    width: 90%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+
+}
+
+.levelProgress{
+    flex: 1;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.levelItems{
+    width: 90%;
+    height: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    display: flex;
+
+
+}
+
+.levelItem{
+    width: 50%;
+    height: 80%;
+    margin: 2%;
+    background-color: #2b2d42;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border-style: solid;
+    border-color: #333;
+    border-width: 5px;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+.levelItem a{
+    margin-top: 6%;
+}
+
+
+
+.levelItem input{
+    width: 50%;
+    height: 25%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    border-radius: 5px;
+    border: 1px solid #333;
+    padding: 5px;
+}
+
+.levelItem button{
+    width: 25%;
+    height: 40%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    border-radius: 5px;
+    border: 1px solid #333;
+    padding: 5px;
+    background-color: #333;
+    color: #fff;
+}
+
+.levelItem form{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+}
+
+#code-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    z-index: -1; /* Place the background behind other elements */
+}
+
+#typed-output {
+    justify-self: center;
+    align-self: center;
+    color: #59e059; /* Green text color */
+    font-family: 'Courier New', monospace;
+    font-size: 30px;
+}
+
+
+
+#ctdHeader {
+    justify-self: center;
+    align-self: center;
+    color: #333;
+    font-size: 40px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+}
+
+nav li {
+    margin-right: 20px;
+    align-items: center;
+
+}
+
+a {
+    text-decoration: none;
+    color: #cfd9cf;
+}
+
+a:hover {
+    border-bottom: 2px solid rgb(41, 41, 60);
+}
+
+
+
+section {
+    margin-bottom: 20px;
+}
+
+h1, h2, h3 {
+    color: #fff;
+}
+
+button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
