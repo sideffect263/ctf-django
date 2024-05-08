@@ -1,0 +1,189 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+
+  <style>
+    body{
+        padding: 0;
+        margin: 0;
+        font-family: sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+      }
+      #container{
+        background: #6400e4;
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        float: left;
+      }
+      h1{
+        font-size: 30px;
+        width: 50%;
+        text-align: center;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        margin-top: 15px;
+        color: #141c3a;
+      }
+      p{
+        font-size: 18px;
+        width: 60%;
+        text-align: center;
+        font-weight: 400;
+        margin: 0 auto;
+        margin-bottom: 40px;
+        color: white;
+      }
+      button{
+        width: 150px;
+        height: 40px;
+        display: block;
+        margin: 0 auto;
+        border: none;
+        font-size: 18px;
+        color: white;
+        background: #141c3a;
+      }
+      #float-circle{
+        width: 100px;
+        height: 100px;
+        background: #fd4d3f;
+        border-radius: 100px;
+        bottom: 50px;
+        left: 50%;
+        position: absolute;
+        transition-property: bottom;
+        transition-duration: 2s;
+        z-index: 2; 
+      }
+      #floor{
+        width: 100%;
+        height: 30px;
+        background: #6df0c2;
+        bottom: 0;
+        position: absolute;
+      }
+
+
+
+      #platform{
+        width: 100px;
+        height: 50px;
+        background: #efd9ca;
+        bottom: 0;
+        position: absolute;
+        left: 50%;
+        right: 50%;
+      }
+
+      table {
+        width: 250px;
+        border-collapse: collapse;
+        background-color: #f8f8f8;
+        border: 1px solid #ddd;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #fd4d3f;
+        color: white;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+        background-color: #fd4d3f;
+        color: white;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #6df0c2;
+    }
+
+    center {
+      font-size: 30px;
+      width: 50%;
+      text-align: center;
+      margin: 0 auto;
+      margin-bottom: 20px;
+      margin-top: 15px;
+      color: #141c3a;
+    }
+    a {
+      font-size: 30px;
+      text-align: center;
+      color: #141c3a;
+      position: absolute;
+      top: 20px; /* Adjust the value to move the link down */
+      left: 10px; /* Adjust the value to move the link to the right */
+      z-index: 1;
+    }
+
+    .move-down-right {
+      margin-top:80%; /* Adjust the vertical distance */
+      margin-left: 50%; /* Adjust the horizontal distance */
+    }
+    
+  </style>
+  <link rel="stylesheet" type="text/css" href="{% static 'style/style_level3.css' %}">
+
+</head>
+
+
+<body>
+  <div id='container'>
+    <h1>Ball Bounce</h1>
+    <p>Let's dribble the ball on the platform using any key on your keyboard. Hold a key down to lift the ball, then release the key to drop the ball.</p>
+   
+
+    <div id='float-circle'></div> 
+    <div><a href = "{% url 'level31' %}" class ="move-down-right">log in</a></div>
+    <div id='platform'></div>
+    <div id='floor'></div>
+
+   
+</div>
+
+
+  <script>
+
+let ball = document.getElementById('float-circle');
+
+// Write your code below
+function up(){
+  ball.style.bottom = '500px';
+}
+
+function down(){
+  ball.style.bottom = '50px';
+}
+
+document.addEventListener('keydown', up);
+document.addEventListener('keyup', down);
+  </script>
+
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+{% extends "base.html" %} 
+{% block content %}
+
+<h1>admin log in page</h1>
+
+<form method ="POST" action = "{% url 'level22' %}">
+    {% csrf_token %}
+
+    <div class="form-group">
+        <input placeholder="first name" type="text" class="form-control" name ="fname" value ="{{ fname }}">
+    </div>
+    <div class="form-group">
+        <input placeholder = "password" type="password" class="form-control" id="exampleInputPassword1" name = "passwd" value = "{{passwd}}">
+      </div>
+      <br/>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  
+</form>
+
+
+{% endblock %}

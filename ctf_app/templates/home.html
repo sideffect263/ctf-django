@@ -1,0 +1,179 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTF Home</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style/style.css' %}">
+
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+</head>
+<body>
+    <div class="container">
+ 
+
+    <nav class="navbar">
+            <a href="#" class="navbar-brand">CTF ZONE</a>
+
+            <div class="collapse navbar-collapse justify-content-end">
+                <ul class="navbar-nav mb-2 mb-lg-0" >
+                    {% if not user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href='/register'>signup</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">login</a>
+                    </li>
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">logout</a>
+                    </li> 
+                    <li class="nav-item">
+                        <a class="nav-link" href="/profile">profile</a>
+                    </li> 
+                    {% endif %}
+                </ul>
+            </div>
+    </nav>
+    <br>
+   
+    {% if user.is_authenticated %}
+
+<br>
+    <br>
+    <div class="typo" id="typed-output"></div>
+    <div class="levelHandler">
+        <div class="levelProgress">
+            <h1>Level Progress</h1>
+
+            <ul class="level-progress">
+                {% for level, passed in level_progress.items %}
+                    <li>
+                        <strong>{{ level }}</strong>:
+                        {% if passed %}
+                            <span style="color: green;">Passed</span>
+                        {% else %}
+                            <span style="color: red;">Not Passed</span>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+            {%endif%}
+        </div>
+    <div class="levels">
+        <h2>CTF Levels</h2>
+
+        <div class="levelItems">
+            <div class="levelItem">
+                <a  href="{% url 'level1' %}">Level 1 is a simple level to get you started.</a>
+                <form  method ="POST" action = "{% url 'home' %}">
+                    {% csrf_token %}
+                    <input placeholder="ctf_code_level_1" type="text" class="form-control" id="level1"  name ="level1" value ="{{level1}}">
+                    <button type="submit">submit</button>
+                </form>
+         </div>
+            <div class="levelItem">
+                <a  href="{% url 'level2' %}">Level 2 is a simple level to get you started.</a>
+                <form method ="POST" action = "{% url 'home' %}">
+                    {% csrf_token %}
+                    <input placeholder="ctf_code_level_2" type="text" class="form-control" id="level2"  name ="level2" value ="{{level2}}">
+                    <button type="submit">submit</button>
+                </form>
+         </div>
+   </div>
+        <div class="levelItems">
+            <div class="levelItem">
+                <a  href="{% url 'level3' %}">Level 3 is a simple level to get you started.</a>
+                <form method ="POST" action = "{% url 'home' %}">
+                    {% csrf_token %}
+                    <input placeholder="ctf_code_level_3" type="text" class="form-control" id="level3"  name ="level3" value ="{{level3}}">
+                    <button type="submit">submit</button>
+                </form>
+         </div>
+            <div class="levelItem">
+                <a  href="{% url 'level4' %}">Level 4 is a simple level to get you started.</a>
+                <form method ="POST" action = "{% url 'home' %}">
+                    {% csrf_token %}
+                    <input placeholder="ctf_code_level_4" type="text" class="form-control" id="level4"  name ="level4" value ="{{level4}}">
+                    <button type="submit">submit</button>
+                </form>
+         </div>
+   </div>
+        <div class="levelItems">
+            <div class="levelItem">
+                <a  href="{% url 'food:index' %}">Level 5 is a simple level to get you started.</a>
+                <form method ="POST" action = "{% url 'home' %}">
+                    {% csrf_token %}
+                    <input placeholder="ctf_code_level_5" type="text" class="form-control" id="level5"  name ="level5" value ="{{level5}}">
+                    <button type="submit">submit</button>
+                </form>
+         </div>
+            <div class="levelItem">
+                <a  href="movies/movies">Level 6 is a simple level to get you started.</a>
+                <form method ="POST" action = "{% url 'home' %}">
+                    {% csrf_token %}
+                    <input placeholder="ctf_code_level_6" type="text" class="form-control" id="level6"  name ="level6" value ="{{level6}}">
+                    <button type="submit">submit</button>
+                </form>
+         </div>
+   </div>
+   <div class="levelItems">
+    <div class="levelItem">
+        <a  href="movie_list/">Level 7 is a simple level to get you started.</a>
+        <form method ="POST" action = "{% url 'home' %}">
+            {% csrf_token %}
+            <input placeholder="ctf_code_level_7" type="text" class="form-control" id="level7"  name ="level7" value ="{{level7}}">
+            <button type="submit">submit</button>
+        </form>
+        </div>
+    <div class="levelItem">
+        <a  href="shop/">Level 8 is a simple level to get you started.</a>
+        <form method ="POST" action = "{% url 'home' %}">
+            {% csrf_token %}
+            <input placeholder="ctf_code_level_8" type="text" class="form-control" id="level8"  name ="level8" value ="{{level8}}">
+            <button type="submit">submit</button>
+        </form>
+        </div>
+   </div>
+
+
+    </div>
+</div>
+    
+    <br>
+    {% if user.is_authenticated %}
+
+   
+    
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 CTF Zone. All rights reserved.</p>
+        </div>
+    </footer>
+    <br>
+
+
+    
+
+
+
+
+    <script>
+        let message = 'welcome to ctf zone {{user}}';
+        var typed = new Typed('#typed-output', {
+            strings: [message],
+            typeSpeed: 25,
+            backSpeed: 25,
+            loop: true
+        });
+    </script>
+    {% endif %}
+
+</div>
+</body>
+</html>

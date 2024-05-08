@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DVD Screensaver</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .dvd-container {
+      position: relative;
+      width: 150vw;
+      height: 150vh;
+      background-color: #000;
+    }
+
+    .dvd-block {
+      position: absolute;
+      width: 100px;
+      height: 50px;
+      background-color: #fff;
+    }
+  </style>
+</head>
+<body>
+    <h1>The ctf code is in the moving block</h1>
+  <div class="dvd-container">
+    <div class="dvd-block" id="dvdBlock">ctf-vq14e54213dds##bdsa68</div>
+  </div>
+  
+
+  <script>
+    const block = document.getElementById('dvdBlock');
+    let x = 0;
+    let y = 0;
+    let xDirection = 1;
+    let yDirection = 1;
+
+    function moveBlock() {
+      x += 10 * xDirection;
+      y += 10 * yDirection;
+
+      const maxX = window.innerWidth - block.clientWidth;
+      const maxY = window.innerHeight - block.clientHeight;
+
+      if (x >= maxX || x <= 0) {
+        xDirection *= -1;
+      }
+
+      if (y >= maxY || y <= 0) {
+        yDirection *= -1;
+      }
+
+      block.style.transform = `translate(${x}px, ${y}px)`;
+
+      requestAnimationFrame(moveBlock);
+    }
+
+    moveBlock();
+  </script>
+</body>
+</html>

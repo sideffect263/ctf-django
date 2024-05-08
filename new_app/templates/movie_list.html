@@ -1,0 +1,62 @@
+{% extends 'base.html'%}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .glow-text {
+            color: black; 
+            transition: text-shadow 0.5s ease-in-out; /* Add a transition for a smooth effect */
+        }
+        
+        .glow-text:hover {
+            text-shadow: 0 0 10px rgba(25, 250, 250, 0.3), 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.8); /* Add multiple shadows to create the glowing effect */
+        }
+        
+
+
+    </style>
+</head>
+<body>
+
+<br>
+<!--
+<form action ="" method ="GET">
+    {%csrf_token%}
+    <input type="search" name="movie_name">
+    <button type="submit">search</button>
+</form>
+-->
+<br>
+<hr>
+{% for movie in movie_objects %}
+<hr>
+<br>
+<h3 class="glow-text">{{movie.name}}</h3>
+<br>
+<hr>
+
+{% endfor %}
+<hr>
+<!--
+
+{% if movie_objects.has_previous %}
+    <a href="?page=1"><button type="button" class="btn btn-outline-primary">First</button></a>
+    <a href="?page={{movie_objects.previous_page_number}}"><button type="button" class="btn btn-outline-primary">go back</button></a>
+
+{% endif %}
+<br>
+{% if movie_objects.has_next %}
+    <a href="?page={{movie_objects.next_page_number}}"><button type="button" class="btn btn-outline-primary">Next</button></a>
+    <a href="?page={{movie_objects.paginator.num_pages}}"><button type="button" class="btn btn-outline-primary">Last</button></a>
+
+{% endif %}
+Page:{{movie_objects.number}} of {{movie_objects.paginator.num_pages}}
+-->
+
+</body>
+</html>
+
+{% endblock %}
