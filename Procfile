@@ -1,1 +1,1 @@
-web: gunicron ctf.wsgi --log-file -
+web: gunicorn app:app
