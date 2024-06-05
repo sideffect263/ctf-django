@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'new_app',
     'shop',
     'admin_honeypot',
+    'google_analytics',
+
 
 ]
 
