@@ -7,147 +7,77 @@
 
   <style>
     body{
-        padding: 0;
-        margin: 0;
-        font-family: sans-serif;
-        display: flex;
-        align-items: center;
+        background-color: #6df0c2;
+        flex: 1;
         justify-content: center;
-        height: 100vh;
-        margin: 0;
+        align-items: center;
+        align-content: center;
+    
       }
       #container{
+        flex: 1;
         background: #6400e4;
-        width: 100vw;
-        height: 100vh;
-        margin: 0;
-        float: left;
+        height: 100%;
+        border-radius: 20px;
+        align-self: center;
       }
+
+      .move-down-right{
+        position: absolute;
+        bottom: 80px;
+        right: 49%;
+        color: black;
+        font-size: 1em;
+      }
+
       h1{
-        font-size: 30px;
-        width: 50%;
+        color: white;
         text-align: center;
-        margin: 0 auto;
-        margin-bottom: 20px;
-        margin-top: 15px;
-        color: #141c3a;
+        font-size: 2em;
+        padding-top: 20px;
       }
+
       p{
-        font-size: 18px;
-        width: 60%;
+        color: white;
         text-align: center;
-        font-weight: 400;
-        margin: 0 auto;
-        margin-bottom: 40px;
-        color: white;
+        font-size: 1.5em;
+        padding-top: 20px;
       }
-      button{
-        width: 150px;
-        height: 40px;
-        display: block;
-        margin: 0 auto;
-        border: none;
-        font-size: 18px;
-        color: white;
-        background: #141c3a;
-      }
+
       #float-circle{
-        width: 100px;
-        height: 100px;
-        background: #fd4d3f;
-        border-radius: 100px;
+        width: 80px;
+        height: 80px;
+        background-color: #141c3a;
+        border-radius: 50%;
+        position: absolute;
         bottom: 50px;
         left: 50%;
-        position: absolute;
-        transition-property: bottom;
-        transition-duration: 2s;
-        z-index: 2; 
+        transform: translateX(-50%);
+        transition: all 2s ease-in-out;
+        z-index: 1;
       }
+       #platform{
+        width: 10%;
+        height: 20px;
+        background-color: #ff725e;
+        position: absolute;
+        bottom: 15px;
+        left: 45%;
+      }
+
       #floor{
-        width: 100%;
-        height: 30px;
-        background: #6df0c2;
-        bottom: 0;
+        width: 15%;
+        height: 20px;
+        background-color: beige;
         position: absolute;
-      }
-
-
-
-      #platform{
-        width: 100px;
-        height: 50px;
-        background: #efd9ca;
         bottom: 0;
-        position: absolute;
-        left: 50%;
-        right: 50%;
+        left: 42%;
       }
+      
 
-      table {
-        width: 250px;
-        border-collapse: collapse;
-        background-color: #f8f8f8;
-        border: 1px solid #ddd;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    th, td {
-        padding: 12px;
-        text-align: left;
-        border-bottom: 1px solid #ddd;
-    }
-
-    th {
-        background-color: #fd4d3f;
-        color: white;
-    }
-
-    input[type="text"],
-    input[type="password"] {
-        width: 100%;
-        padding: 8px;
-        box-sizing: border-box;
-    }
-
-    input[type="submit"] {
-        background-color: #fd4d3f;
-        color: white;
-        padding: 10px;
-        border: none;
-        cursor: pointer;
-        width: 100%;
-    }
-
-    input[type="submit"]:hover {
-        background-color: #6df0c2;
-    }
-
-    center {
-      font-size: 30px;
-      width: 50%;
-      text-align: center;
-      margin: 0 auto;
-      margin-bottom: 20px;
-      margin-top: 15px;
-      color: #141c3a;
-    }
-    a {
-      font-size: 30px;
-      text-align: center;
-      color: #141c3a;
-      position: absolute;
-      top: 20px; /* Adjust the value to move the link down */
-      left: 10px; /* Adjust the value to move the link to the right */
-      z-index: 1;
-    }
-
-    .move-down-right {
-      margin-top:80%; /* Adjust the vertical distance */
-      margin-left: 50%; /* Adjust the horizontal distance */
-    }
+      
     
   </style>
-  <link rel="stylesheet" type="text/css" href="{% static 'style/style_level3.css' %}">
 
 </head>
 
@@ -155,11 +85,14 @@
 <body>
   <div id='container'>
     <h1>Ball Bounce</h1>
-    <p>Let's dribble the ball on the platform using any key on your keyboard. Hold a key down to lift the ball, then release the key to drop the ball.</p>
+    <p>Can you think of any way you can move this ball?.</p>
    
 
-    <div id='float-circle'></div> 
+    <div id='float-circle'>
+
+    </div> 
     <div><a href = "{% url 'level31' %}" class ="move-down-right">log in</a></div>
+
     <div id='platform'></div>
     <div id='floor'></div>
 
