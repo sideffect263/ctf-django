@@ -7,9 +7,245 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CTF Home</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'style/style.css' %}">
-
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+    <style>
+        /* Reset some default styles for consistency */
+body, h1, h2, h3, p, ul, li,html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #000;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin: 0; /* Remove default body margin */
+    padding: 0; /* Remove default body padding */
+}
+.container {
+    width: 100%;
+    min-height: 100%; /* Ensure the container takes at least the full height of the viewport */
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    margin-top: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.levelItems a{
+    text-align: center;
+    color: antiquewhite;
+
+}
+
+.navbar-brand{
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-left: 2%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+.levels{
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    justify-self: center;
+    align-self: center;
+    flex-direction: column;
+    border-style: solid;
+    border-color: #333;
+    border-width: 5px;
+    flex: 3;
+    border-radius: 30px;
+
+
+}
+
+.levelHandler{
+    width: 90%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+
+}
+
+.levelProgress{
+    flex: 1;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.levelItems{
+    width: 90%;
+    height: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    display: flex;
+
+
+}
+
+.levelItem{
+    width: 50%;
+    height: 80%;
+    margin: 2%;
+    background-color: #2b2d42;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border-style: solid;
+    border-color: #333;
+    border-width: 5px;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+.levelItem a{
+    margin-top: 6%;
+    text-align: center;
+}
+
+
+
+.levelItem input{
+    width: 50%;
+    height: 25%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    border-radius: 5px;
+    border: 1px solid #333;
+    padding: 5px;
+}
+
+.levelItem button{
+    width: 25%;
+    height: 40%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    border-radius: 5px;
+    border: 1px solid #333;
+    padding: 5px;
+    background-color: #333;
+    color: #fff;
+}
+
+.levelItem form{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+}
+
+#code-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    z-index: -1; /* Place the background behind other elements */
+}
+
+#typed-output {
+    justify-self: center;
+    align-self: center;
+    color: #59e059; /* Green text color */
+    font-family: 'Courier New', monospace;
+    font-size: 30px;
+}
+
+
+
+#ctdHeader {
+    justify-self: center;
+    align-self: center;
+    color: #333;
+    font-size: 40px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+}
+
+nav li {
+    margin-right: 20px;
+    align-items: center;
+
+}
+
+a {
+    text-decoration: none;
+    color: #cfd9cf;
+}
+
+a:hover {
+    border-bottom: 2px solid rgb(41, 41, 60);
+}
+
+
+
+section {
+    margin-bottom: 20px;
+}
+
+h1, h2, h3 {
+    color: #fff;
+}
+
+button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+    </style>
 </head>
 <body>
     <div class="container">
@@ -69,7 +305,7 @@
 
         <div class="levelItems">
             <div class="levelItem">
-                <a  href="{% url 'level1' %}">Level 1 is a simple level to get you started.</a>
+                <a  href="{% url 'level1' %}">Level 1: Newbie Nibble - A simple level to get you started.</a>
                 <form  method ="POST" action = "{% url 'home' %}">
                     {% csrf_token %}
                     <input placeholder="ctf_code_level_1" type="text" class="form-control" id="level1"  name ="level1" value ="{{level1}}">
@@ -77,7 +313,7 @@
                 </form>
          </div>
             <div class="levelItem">
-                <a  href="{% url 'level2' %}">Level 2 is a simple level to get you started.</a>
+                <a  href="{% url 'level2' %}">Code Cracker - Just a bit trickier than the first</a>
                 <form method ="POST" action = "{% url 'home' %}">
                     {% csrf_token %}
                     <input placeholder="ctf_code_level_2" type="text" class="form-control" id="level2"  name ="level2" value ="{{level2}}">
@@ -87,7 +323,7 @@
    </div>
         <div class="levelItems">
             <div class="levelItem">
-                <a  href="{% url 'level3' %}">Level 3 is a simple level to get you started.</a>
+                <a  href="{% url 'level3' %}">Out of the Ballpark - Time to hit a home run!</a>
                 <form method ="POST" action = "{% url 'home' %}">
                     {% csrf_token %}
                     <input placeholder="ctf_code_level_3" type="text" class="form-control" id="level3"  name ="level3" value ="{{level3}}">
@@ -95,7 +331,7 @@
                 </form>
          </div>
             <div class="levelItem">
-                <a  href="{% url 'level4' %}">Level 4 is a simple level to get you started.</a>
+                <a  href="{% url 'level4' %}">Don’t Get Ink on Yourself! - Navigate the messy bits.</a>
                 <form method ="POST" action = "{% url 'home' %}">
                     {% csrf_token %}
                     <input placeholder="ctf_code_level_4" type="text" class="form-control" id="level4"  name ="level4" value ="{{level4}}">
@@ -105,7 +341,7 @@
    </div>
         <div class="levelItems">
             <div class="levelItem">
-                <a  href="{% url 'food:index' %}">Level 5 is a simple level to get you started.</a>
+                <a  href="{% url 'food:index' %}">It's Time to Get Cheesy - Say cheese and smile through the challenges.</a>
                 <form method ="POST" action = "{% url 'home' %}">
                     {% csrf_token %}
                     <input placeholder="ctf_code_level_5" type="text" class="form-control" id="level5"  name ="level5" value ="{{level5}}">
@@ -113,7 +349,7 @@
                 </form>
          </div>
             <div class="levelItem">
-                <a  href="movies/movies">Level 6 is a simple level to get you started.</a>
+                <a  href="movies/movies">You Up for a Movie? - Lights, camera, action!</a>
                 <form method ="POST" action = "{% url 'home' %}">
                     {% csrf_token %}
                     <input placeholder="ctf_code_level_6" type="text" class="form-control" id="level6"  name ="level6" value ="{{level6}}">
@@ -123,7 +359,7 @@
    </div>
    <div class="levelItems">
     <div class="levelItem">
-        <a  href="movie_list/">Level 7 is a simple level to get you started.</a>
+        <a  href="movie_list/">Pagintaor's Haven - The playground for the penultimate puzzle master.</a>
         <form method ="POST" action = "{% url 'home' %}">
             {% csrf_token %}
             <input placeholder="ctf_code_level_7" type="text" class="form-control" id="level7"  name ="level7" value ="{{level7}}">
@@ -131,7 +367,7 @@
         </form>
         </div>
     <div class="levelItem">
-        <a  href="shop/">Level 8 is a simple level to get you started.</a>
+        <a  href="shop/">Boss Battle - The ultimate test of your skills.</a>
         <form method ="POST" action = "{% url 'home' %}">
             {% csrf_token %}
             <input placeholder="ctf_code_level_8" type="text" class="form-control" id="level8"  name ="level8" value ="{{level8}}">
